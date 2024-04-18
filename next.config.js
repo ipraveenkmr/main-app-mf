@@ -2,9 +2,12 @@ const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
   webpack: (config, options) => {
     const { isServer } = options;
-    config.experiments = { topLevelAwait: true };
+    //config.experiments = { topLevelAwait: true, layers: false };
     config.plugins.push(
       new NextFederationPlugin({
         name: 'main',
@@ -15,6 +18,9 @@ const nextConfig = {
         exposes: {
           './footer': './components/Footer.js',
           './nav': './components/Nav.js'
+        },
+        extraOptions: {
+          exposePages: true
         }
       })
     );
