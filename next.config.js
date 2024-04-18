@@ -17,7 +17,8 @@ const nextConfig = {
         filename: 'static/chunks/remoteEntry.js',
         exposes: {
           './footer': './components/Footer.js',
-          './nav': './components/Nav.js'
+          './nav': './components/Nav.js',
+          './counter': './components/Counter.js',
         },
         extraOptions: {
           exposePages: true
